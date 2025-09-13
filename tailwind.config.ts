@@ -61,7 +61,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'music-orange': '#FF6B35',
+				'music-purple': '#7B2CBF',
+				'music-gold': '#F7931E',
+				'music-dark': '#1A1A1A',
+				'music-white': '#FFFFFF'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
