@@ -62,11 +62,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'music-orange': '#FF6B35',
-				'music-purple': '#7B2CBF',
-				'music-gold': '#F7931E',
-				'music-dark': '#1A1A1A',
-				'music-white': '#FFFFFF'
+				'vintage-cream': '#F5F1E8',
+				'vintage-brown': '#8B4513',
+				'vintage-gold': '#D4AF37',
+				'vintage-red': '#CD5C5C',
+				'vintage-dark': '#2F1B14',
+				'vintage-beige': '#E6D7C3'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -8,26 +8,26 @@ import Icon from '@/components/ui/icon';
 const tracks = [
   {
     id: 1,
-    title: "Cosmic Journey",
-    artist: "Space Explorer",
+    title: "Moonlight Serenade",
+    artist: "Classic Jazz Ensemble",
     duration: "3:45",
-    cover: "/img/8428ae13-6dcb-441f-8da4-1d87d37da424.jpg",
+    cover: "/img/1349529c-70f5-4bc2-b06b-f9fc3156970d.jpg",
     audioSrc: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"
   },
   {
     id: 2,
-    title: "Digital Dreams",
-    artist: "Neon Nights",
+    title: "Vinyl Memories",
+    artist: "The Retro Band",
     duration: "4:12",
-    cover: "/img/8399ffd3-0233-4ad9-849a-d1d592ae9149.jpg",
+    cover: "/img/0d6b8838-88a1-469f-a219-7e130108e7f6.jpg",
     audioSrc: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"
   },
   {
     id: 3,
-    title: "Urban Beat",
-    artist: "City Pulse",
+    title: "Golden Hour Blues",
+    artist: "Vintage Soul",
     duration: "3:28",
-    cover: "/img/3b4874d8-a67c-415a-9b5d-ec7bbeed9f24.jpg",
+    cover: "/img/b3b6e2f5-b8fb-49ab-84fc-af37bcb7a807.jpg",
     audioSrc: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"
   }
 ];
@@ -112,7 +112,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-music-purple via-music-dark to-music-orange">
+    <div className="min-h-screen bg-gradient-to-br from-vintage-cream via-vintage-beige to-vintage-brown vintage-texture">
       <audio 
         ref={audioRef} 
         src={tracks[currentTrack].audioSrc}
@@ -122,14 +122,19 @@ export default function Index() {
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-music-purple/20 to-music-orange/20"></div>
-        <div className="relative container mx-auto px-6 py-20">
-          <div className="text-center text-white">
-            <h1 className="bebas-font text-8xl md:text-9xl font-bold mb-6 tracking-wider">
-              MUSIC ARTIST
+        <div className="absolute inset-0 bg-gradient-to-r from-vintage-brown/30 to-vintage-gold/20"></div>
+        <div className="relative container mx-auto px-6 py-24">
+          <div className="text-center text-vintage-dark">
+            <h1 className="vintage-title text-7xl md:text-8xl font-bold mb-8 tracking-wide drop-shadow-lg">
+              VINTAGE SOUNDS
             </h1>
-            <p className="text-xl md:text-2xl text-music-white/80 max-w-2xl mx-auto leading-relaxed">
-              Погружайся в космические звуки будущего
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-0.5 bg-vintage-gold"></div>
+              <Icon name="Music" size={32} className="text-vintage-gold" />
+              <div className="w-16 h-0.5 bg-vintage-gold"></div>
+            </div>
+            <p className="text-lg md:text-xl text-vintage-dark/80 max-w-2xl mx-auto leading-relaxed italic">
+              Классическая музыка в теплых тонах прошлого
             </p>
           </div>
         </div>
@@ -137,10 +142,10 @@ export default function Index() {
 
       {/* Audio Player */}
       <div className="container mx-auto px-6 py-8">
-        <Card className="bg-black/40 backdrop-blur-lg border-music-orange/20">
+        <Card className="bg-vintage-cream/90 backdrop-blur-sm border-vintage-brown/30 shadow-2xl">
           <CardContent className="p-8">
             <div className="flex items-center gap-6 mb-6">
-              <div className="w-20 h-20 rounded-lg overflow-hidden shadow-lg">
+              <div className="w-20 h-20 rounded-full overflow-hidden shadow-xl vinyl-texture border-4 border-vintage-brown">
                 <img 
                   src={tracks[currentTrack].cover} 
                   alt={tracks[currentTrack].title}
@@ -148,17 +153,17 @@ export default function Index() {
                 />
               </div>
               <div className="flex-1">
-                <h3 className="bebas-font text-2xl text-music-white tracking-wide">
+                <h3 className="vintage-title text-2xl text-vintage-dark font-semibold">
                   {tracks[currentTrack].title}
                 </h3>
-                <p className="text-music-white/60">
+                <p className="text-vintage-brown italic">
                   {tracks[currentTrack].artist}
                 </p>
               </div>
               <Button
                 onClick={togglePlay}
                 size="lg"
-                className="bg-music-orange hover:bg-music-gold text-white rounded-full w-16 h-16"
+                className="bg-vintage-gold hover:bg-vintage-brown text-vintage-dark hover:text-vintage-cream rounded-full w-16 h-16 shadow-lg border-2 border-vintage-brown"
               >
                 <Icon name={isPlaying ? "Pause" : "Play"} size={24} />
               </Button>
@@ -167,15 +172,15 @@ export default function Index() {
             {/* Progress Bar */}
             <div className="space-y-2">
               <div 
-                className="w-full h-2 bg-music-white/20 rounded-full cursor-pointer relative"
+                className="w-full h-3 bg-vintage-brown/20 rounded-full cursor-pointer relative border border-vintage-brown/30"
                 onClick={handleProgressClick}
               >
                 <div 
-                  className="h-full bg-gradient-to-r from-music-orange to-music-gold rounded-full transition-all duration-150"
+                  className="h-full bg-gradient-to-r from-vintage-gold to-vintage-red rounded-full transition-all duration-300 shadow-inner"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <div className="flex justify-between text-sm text-music-white/60">
+              <div className="flex justify-between text-sm text-vintage-brown font-medium">
                 <span>{formatTime(currentTime)}</span>
                 <span>{formatTime(duration)}</span>
               </div>
@@ -186,47 +191,47 @@ export default function Index() {
 
       {/* Track List */}
       <div className="container mx-auto px-6 pb-20">
-        <h2 className="bebas-font text-4xl text-music-white mb-8 text-center tracking-wide">
-          ТРЕКИ
+        <h2 className="vintage-title text-5xl text-vintage-dark mb-12 text-center font-bold">
+          ~ Коллекция ~
         </h2>
         <div className="grid gap-4 max-w-4xl mx-auto">
           {tracks.map((track, index) => (
             <Card 
               key={track.id}
-              className={`bg-black/30 backdrop-blur border-music-white/10 hover:border-music-orange/50 transition-all cursor-pointer group ${
-                currentTrack === index ? 'border-music-orange bg-music-orange/10' : ''
+              className={`bg-vintage-cream/80 backdrop-blur-sm border-vintage-brown/20 hover:border-vintage-gold hover:bg-vintage-beige/50 transition-all cursor-pointer group shadow-md ${
+                currentTrack === index ? 'border-vintage-gold bg-vintage-gold/20 shadow-lg' : ''
               }`}
               onClick={() => playTrack(index)}
             >
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-lg overflow-hidden shadow-md">
+                  <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg vinyl-texture border-3 border-vintage-brown">
                     <img 
                       src={track.cover} 
                       alt={track.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="bebas-font text-xl text-music-white tracking-wide">
+                    <h3 className="vintage-title text-xl text-vintage-dark font-semibold">
                       {track.title}
                     </h3>
-                    <p className="text-music-white/60">
+                    <p className="text-vintage-brown italic text-sm">
                       {track.artist}
                     </p>
                   </div>
-                  <div className="text-music-white/60">
+                  <div className="text-vintage-brown font-mono text-sm">
                     {track.duration}
                   </div>
                   <div className="w-10 h-10 flex items-center justify-center">
                     {currentTrack === index && isPlaying ? (
                       <div className="flex gap-1">
-                        <div className="w-1 h-6 bg-music-orange animate-pulse"></div>
-                        <div className="w-1 h-4 bg-music-gold animate-pulse" style={{animationDelay: '0.1s'}}></div>
-                        <div className="w-1 h-5 bg-music-orange animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                        <div className="w-1 h-6 bg-vintage-gold animate-pulse"></div>
+                        <div className="w-1 h-4 bg-vintage-red animate-pulse" style={{animationDelay: '0.1s'}}></div>
+                        <div className="w-1 h-5 bg-vintage-gold animate-pulse" style={{animationDelay: '0.2s'}}></div>
                       </div>
                     ) : (
-                      <Icon name="Play" size={20} className="text-music-white/40 group-hover:text-music-orange transition-colors" />
+                      <Icon name="Play" size={20} className="text-vintage-brown/60 group-hover:text-vintage-gold transition-colors" />
                     )}
                   </div>
                 </div>
